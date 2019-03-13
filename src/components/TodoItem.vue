@@ -6,7 +6,7 @@
         <p>
             <input type="checkbox" v-model="todo.completed"/>
             {{todo.title}}
-            <button class="del">x</button>
+            <button class="del" @click="$emit('remove', todo.id)">x</button>
         </p>
     </div>
 </template>
@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .todo-item{
         background: #f4f4f4;
         padding: 10px;
@@ -38,6 +38,11 @@ export default {
         height: 22px;
         font-size: 14px;
         font-weight: 300;
+        cursor: pointer;
+
+        &:hover{
+            background: red;
+        }
     }
 </style>
 
